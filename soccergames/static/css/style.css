@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:rgb(19,24,27);
+    /* height: 100vh;
+    width: 100vw; */
+}
+
+.container_body {
+    margin: 0 39rem 0 ;
+    background-color:#607d8b33;
+}
+
+.headingblock {
+    text-align: center;
+    margin-top: 0%;
+    letter-spacing: 0.1rem;
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgb(167, 12, 167);
+    text-transform: capitalize;
+}
+
+.purpose {
+    max-width: 70rem;
+    text-align: center;
+    margin: 0 auto;
+    color: aliceblue;
+    font-weight: 300;
+    text-transform: capitalize;
+    letter-spacing: 1.2px;
+}
+
+.navigators {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+li .links {
+    font-size: large;
+    font-weight:400;
+    color: #fff;
+    background:rgb(167, 12, 167);
+    border-left: 1px solid #fff;
+    padding: 10px 40px 13px 40px;
+    
+}
+
+li .links:hover{
+    color: rgb(215, 209, 209);
+    border-bottom:2px solid gold;
+}
+/* date section  */
+.date_box {
+    background: rgb(223, 219, 219);
+    margin: 0 auto;
+    padding: 1.5rem 0 1.5rem 2rem;
+    color: blue;
+}
+
+.date_bar {
+    color: red;
+    border: 2px solid purple;
+    padding: 0 10px 0 10px;
+}
+
+/* content section  */
+.country_club {
+    background: rgb(19,24,27);
+    margin-bottom: 0;
+}
+
+.predictions {
+    color: black;
+    background: white;
+}
+
+.odds {
+    text-align: end;
+    background: #fff;
+    margin-bottom: 0;
+}
+
+.img_flag {
+    width: 25px;
+    margin:7px 0px 0px 5px;
+}
+
+.team {
+    margin-right: 2rem;
+    text-transform: capitalize;
+    font-weight: 400;
+}
