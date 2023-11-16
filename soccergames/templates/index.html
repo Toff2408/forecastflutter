@@ -27,11 +27,65 @@
       <p class="date_box">pick your preferred prediction date <span class="date_bar">date</span></p>
   </div>
 </section>
+<div class="prediction_cast">
+  <p class="oddgames">1</p>
+  <p class="oddgames">x</p>
+  <p class="oddgames">2</p>
+  <p class="oddgames">1x2</p>
+  <p class="oddgames">Goals</p>
+  <p class="oddgames">Result</p>
+</div>
 
-<section class="content">
-  <p class="odds"><span class="team">1  x  2</span><span class="team">1x2</span> <span class="team">Goals</span>  <span class="team">Result</span> </p>
- <a href=""><img src="{% static '' %}img/spain map.png" alt="" class="img_flag"></a> 
-  <p class="predictions">bets here ok</p>
-</section>
+{% if games %}
+    {% for games in games %}
+    <div class="content">
+      <a href="" class="club_name"><img src="{{games.g_country.img.url}}" alt="" class="img_flag"> {{games.g_country.country}} {{games.g_league}}</a> 
+      <div class="team_last">
+        <div class="team_opposite">
+          <div class="opposite_team1">
+            <div class="standingteam1">
+              <p class="team_time">{{games.time}}</p>
+            </div>
+            <div class="firstgameteampart">
+              <p class="last_games"><span class="gameslast">{{games.last_games}}</span></p>
+              <p class="last_games"><span class="gameslast">W</span></p>
+              <p class="last_games"><span class="gameslast">W</span></p>
+              <p class="last_games"><span class="gameslast">W</span></p>
+              <p class="last_games"><span class="gameslast">W</span></p>
+              <p class="team_select">{{games.home_team}}</p>
+            </div>
+          </div>
+          <div class="opposite_team2">
+            <div class="standing">
+              <p class="team_select">{{games.away_team}}</p>
+            </div>
+            <div class="secondgameteampart">
+              <p class="last_games"><span class="gameslast">W</span></p>
+              <p class="last_games"><span class="gameslast">W</span></p>
+              <p class="last_games"><span class="gameslast">W</span></p>
+              <p class="last_games"><span class="gameslast">W</span></p>
+              <p class="last_games"><span class="gameslast">W</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="final_result">
+          <p class="first_odd">{{games.home_odd}}</p>
+          <p class="draw_odd">{{games.draw_odd}}</p>
+          <p class="second_odd">{{games.away_odd}}</p>
+          <p class="team_win">{{games.to_win}}</p>
+          <p class="goals">{{games.goals}}</p>  
+        {% if games.result %}
+          <p class="result"><img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="" class="checking_mark"></p>
+          {% elif games.result == False %}
+          <p class="result"><img src="{% static 'img/bad.png' %}" alt="" class="checking_mark2"></p> 
+          {% else %}
+          <p class="result"><img src="{% static 'img/pend.png' %}" alt="" class="checking_mark2"></p>          
+          {% endif %}          
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
 {% endblock content %}
 
