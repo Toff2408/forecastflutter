@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model
 
 # Create your models here.
 
-User = get_user_model()
 
 class Country(models.Model):
     country = models.CharField(max_length=50)
