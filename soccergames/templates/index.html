@@ -36,25 +36,28 @@
   <p class="oddgames">Result</p>
 </div>
 
-{% if league %}
-{% for leagues in league %}
+{% if leagues %}
+{% regroup games by home_team.league.l_country as eventsbyleague %}
+{% for country in eventsbyleague %}
 <div class="content">
-  <a href="" class="club_name"><img src="{{leagues.l_country.img.url}}" alt="" class="img_flag"> {{leagues.l_country.country}} {{leagues.league}}</a> 
-  {% for games in games %}
+  <a href="" class="club_name"><img src="{{games.home_team.img.url}}" alt="" class="img_flag"> {{country.grouper}} | {{games.g_league.league}}</a> 
       <div class="team_last">
         <div class="team_opposite">
           <div class="opposite_team1">
             <div class="standingteam1">
               <p class="team_time">{{games.time}}</p>
             </div>
+              
             <div class="firstgameteampart">
-              <p class="last_games"><span class="gameslast">{{games.last_games}}</span></p>
-              <p class="last_games"><span class="gameslast">W</span></p>
-              <p class="last_games"><span class="gameslast">W</span></p>
-              <p class="last_games"><span class="gameslast">W</span></p>
-              <p class="last_games"><span class="gameslast">W</span></p>
-              <p class="team_select">{{games.home_team}}</p>
+              <p class="last_games"><span class="gameslast">{{games.headhead.g1}}</span></p>
+              <p class="last_games"><span class="gameslast">{{games.headhead.g2}}</span></p>
+              <p class="last_games"><span class="gameslast">{{games.headhead.g3}}</span></p>
+              <p class="last_games"><span class="gameslast">{{games.headhead.g4}}</span></p>
+              <p class="last_games"><span class="gameslast">{{games.headhead.g5}}</span></p>
             </div>
+              <div class="standing">
+                <p class="team_select">{{games.home_team}}</p>
+              </div>
           </div>
           <div class="opposite_team2">
             <div class="standing">
@@ -85,73 +88,16 @@
           {% endif %}          
         </div>
       </div>
-      {% endfor %}
     </div>
     {% endfor %}
 {% endif %}
 
-
-<!-- 
-
-{% for league in league %}
-<div class="content">
-  <ul>
-    <li>  
-      <a href="" class="club_name"><img src="{{league.l_country.img.url}}" alt="" class="img_flag"> {{league.l_country.country}} {{league.league}}</a>
-      <ul>
-        {% for games in games %}
-        <li>
-          <div class="team_last">
-            <div class="team_opposite">
-              <div class="opposite_team1">
-                <div class="standingteam1">
-                  <p class="team_time">{{games.time}}</p>
-                </div>
-                <div class="firstgameteampart">
-                  <p class="last_games"><span class="gameslast">{{games.last_games}}</span></p>
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                  <p class="team_select">{{games.home_team}}</p>
-                </div>
-              </div>
-              <div class="opposite_team2">
-                <div class="standing">
-                  <p class="team_select">{{games.away_team}}</p>
-                </div>
-                <div class="secondgameteampart">
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                  <p class="last_games"><span class="gameslast">W</span></p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="final_result">
-              <p class="first_odd">{{games.home_odd}}</p>
-              <p class="draw_odd">{{games.draw_odd}}</p>
-              <p class="second_odd">{{games.away_odd}}</p>
-              <p class="team_win">{{games.to_win}}</p>
-              <p class="goals">{{games.goals}}</p>  
-            {% if games.result %}
-              <p class="result"><img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="" class="checking_mark"></p>
-              {% elif games.result == False %}
-              <p class="result"><img src="{% static 'img/bad.png' %}" alt="" class="checking_mark2"></p> 
-              {% else %}
-              <p class="result"><img src="{% static 'img/pend.png' %}" alt="" class="checking_mark2"></p>          
-              {% endif %}          
-            </div>
-          </div> 
-        </li>
-        {% endfor %}
-      </ul>
-    </li>
-  </ul>
-</div>
-{% endfor %} -->
+{% for things in played %}
+  
+  <div class="d" style="margin-top: 5rem;">
+    <h2>{{things}}</h2>
+  </div>
+{% endfor %}
 
 
 {% endblock content %}

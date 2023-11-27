@@ -5,12 +5,20 @@ from .models import *
 
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
-    list_display = ('id','country','img',)
+    list_display = ('id','country','img')
 
 @admin.register(League)
 class LeagueAdmin(admin.ModelAdmin):
     list_display = ('id','l_country','league',)
 
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ('id','league','name',)
+
 @admin.register(Games)
 class LeagueAdmin(admin.ModelAdmin):
-    list_display = ('id','g_country','g_league','time','last_games','home_team','away_team','home_odd','draw_odd','away_odd','to_win','goals','result',)
+    list_display = ('id','home_team','away_team','time','home_odd','draw_odd','away_odd','to_win','goals','result',)
+
+@admin.register(Headtohead)
+class HeadtoheadAdmin(admin.ModelAdmin):
+    list_display = ('g1','g2','g3','g4','g5')

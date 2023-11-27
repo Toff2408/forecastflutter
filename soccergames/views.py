@@ -4,12 +4,10 @@ from .models import *
 # Create your views here.
 
 def index(request):
-    leagues = League.objects.all().order_by('league')#queryset for all country/ order_by to arrange alphabetically#
-    for item in leagues:
-        games = Games.objects.filter(g_league__league = item.league)
-    context = {
-        "games":games,
-        "league":leagues
-    }
+    games = Games.objects.all().order_by('home_team__league')
     
+    context = {
+        "leagues":games,
+    }
+
     return render(request, 'index.html', context)

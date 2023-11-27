@@ -25,6 +25,8 @@ from prediction.settings import STATIC_ROOT, STATIC_URL
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('soccergames.urls')),
+    path("__debug__/", include("debug_toolbar.urls")),
+
 ]
 
 if settings.DEBUG:
