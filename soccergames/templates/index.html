@@ -36,32 +36,33 @@
   <p class="oddgames">Result</p>
 </div>
 
-{% if leagues %}
-{% regroup games by home_team.league.l_country as eventsbyleague %}
-{% for country in eventsbyleague %}
+{% if games %}
+{% regroup games by home_team.league as events_by_league %}
+{% for league in events_by_league %}
 <div class="content">
-  <a href="" class="club_name"><img src="{{games.home_team.img.url}}" alt="" class="img_flag"> {{country.grouper}} | {{games.g_league.league}}</a> 
+  <a href="" class="club_name"><img src="{{league.grouper.country.img.url}}" alt="" class="img_flag"> {{league.grouper}} {{league.grouper.country}}</a>
+  {% for game in league.list %}
       <div class="team_last">
         <div class="team_opposite">
           <div class="opposite_team1">
             <div class="standingteam1">
-              <p class="team_time">{{games.time}}</p>
+              <p class="team_time">{{game.time}}</p>
             </div>
-              
+
             <div class="firstgameteampart">
-              <p class="last_games"><span class="gameslast">{{games.headhead.g1}}</span></p>
-              <p class="last_games"><span class="gameslast">{{games.headhead.g2}}</span></p>
-              <p class="last_games"><span class="gameslast">{{games.headhead.g3}}</span></p>
-              <p class="last_games"><span class="gameslast">{{games.headhead.g4}}</span></p>
-              <p class="last_games"><span class="gameslast">{{games.headhead.g5}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g1}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g2}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g3}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g4}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g5}}</span></p>
             </div>
               <div class="standing">
-                <p class="team_select">{{games.home_team}}</p>
+                <p class="team_select">{{game.home_team}}</p>
               </div>
           </div>
           <div class="opposite_team2">
             <div class="standing">
-              <p class="team_select">{{games.away_team}}</p>
+              <p class="team_select">{{game.away_team}}</p>
             </div>
             <div class="secondgameteampart">
               <p class="last_games"><span class="gameslast">W</span></p>
@@ -72,22 +73,23 @@
             </div>
           </div>
         </div>
-        
+
         <div class="final_result">
-          <p class="first_odd">{{games.home_odd}}</p>
-          <p class="draw_odd">{{games.draw_odd}}</p>
-          <p class="second_odd">{{games.away_odd}}</p>
-          <p class="team_win">{{games.to_win}}</p>
-          <p class="goals">{{games.goals}}</p>  
-        {% if games.result %}
-          <p class="result"><img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="" class="checking_mark"></p>
+          <p class="first_odd">{{game.home_odd}}</p>
+          <p class="draw_odd">{{game.draw_odd}}</p>
+          <p class="second_odd">{{game.away_odd}}</p>
+          <p class="team_win">{{game.to_win}}</p>
+          <p class="goals">{{game.goals}}</p>
+          {% if game.result %}
+            <p class="result"><img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="" class="checking_mark"></p>
           {% elif games.result == False %}
-          <p class="result"><img src="{% static 'img/bad.png' %}" alt="" class="checking_mark2"></p> 
+            <p class="result"><img src="{% static 'img/bad.png' %}" alt="" class="checking_mark2"></p>
           {% else %}
-          <p class="result"><img src="{% static 'img/pend.png' %}" alt="" class="checking_mark2"></p>          
-          {% endif %}          
+            <p class="result"><img src="{% static 'img/pend.png' %}" alt="" class="checking_mark2"></p>
+          {% endif %}
         </div>
       </div>
+      {% endfor %}
     </div>
     {% endfor %}
 {% endif %}
