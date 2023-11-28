@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -11,6 +13,9 @@ class Country(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = 'Countries'
 
 
 class League(models.Model):
@@ -46,13 +51,13 @@ class Headtohead(models.Model):
         return self.g1
 
 
-class Games(models.Model):
+class Game(models.Model):
     headhead = models.ForeignKey(Headtohead, on_delete=models.CASCADE, null=True)
     home_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='home_team', null=True, blank=True)
     away_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='away_team', null=True, blank=True)
     # g_country = models.ForeignKey(Country,on_delete=models.CASCADE,null=True, blank=True)
     # g_league = models.ForeignKey(League,on_delete=models.CASCADE,related_name='leagues')
-    time = models.TimeField(null=True)
+    date = models.DateTimeField(default=datetime.now)
     home_odd = models.FloatField()
     draw_odd = models.FloatField()
     away_odd = models.FloatField()
