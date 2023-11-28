@@ -50,11 +50,14 @@
             </div>
 
             <div class="firstgameteampart">
-              <p class="last_games"><span class="gameslast">{{game.headhead.g1}}</span></p>
+              {% for gamehome in game.last_fivehome | split : "" %}
+              <p class="last_games"><span class="gameslast">{{gamehome}}</span></p>
+              {% endfor %}
+              <!-- <p class="last_games"><span class="gameslast">{{game.headhead.g1}}</span></p>
               <p class="last_games"><span class="gameslast">{{game.headhead.g2}}</span></p>
               <p class="last_games"><span class="gameslast">{{game.headhead.g3}}</span></p>
               <p class="last_games"><span class="gameslast">{{game.headhead.g4}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g5}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g5}}</span></p> -->
             </div>
               <div class="standing">
                 <p class="team_select">{{game.home_team}}</p>
