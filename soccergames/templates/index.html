@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load soccer_tags %}
 
 {% block content %}
   
@@ -49,11 +50,16 @@
               <p class="team_time">{{game.time}}</p>
             </div>
             <div class="firstgameteampart">
-              <p class="last_games"><span class="gameslast">{{game.headhead.g1}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g2}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g3}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g4}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g5}}</span></p>
+              {% with game.lastfive_home|split as results %}
+                {% for result in results %}
+                  <p class="last_games"> <span class="gameslast"> {{ result }} </span> </p>
+                {% endfor %}
+              {% endwith %}
+
+<!--              <p class="last_games"><span class="gameslast">{{game.headhead.g2}}</span></p>-->
+<!--              <p class="last_games"><span class="gameslast">{{game.headhead.g3}}</span></p>-->
+<!--              <p class="last_games"><span class="gameslast">{{game.headhead.g4}}</span></p>-->
+<!--              <p class="last_games"><span class="gameslast">{{game.headhead.g5}}</span></p>-->
             </div>
               <div class="standing">
                 <p class="team_select">{{game.home_team}}</p>
@@ -64,11 +70,17 @@
               <p class="team_select">{{game.away_team}}</p>
             </div>
             <div class="secondgameteampart">
-              <p class="last_games"><span class="gameslast">W</span></p>
-              <p class="last_games"><span class="gameslast">W</span></p>
-              <p class="last_games"><span class="gameslast">W</span></p>
-              <p class="last_games"><span class="gameslast">W</span></p>
-              <p class="last_games"><span class="gameslast">W</span></p>
+              {% with game.lastfive_away|split as results %}
+                {% for result in results %}
+                  <p class="last_games"> <span class="gameslast"> {{ result }} </span> </p>
+                {% endfor %}
+              {% endwith %}
+
+<!--              <p class="last_games"><span class="gameslast">W</span></p>-->
+<!--              <p class="last_games"><span class="gameslast">W</span></p>-->
+<!--              <p class="last_games"><span class="gameslast">W</span></p>-->
+<!--              <p class="last_games"><span class="gameslast">W</span></p>-->
+<!--              <p class="last_games"><span class="gameslast">W</span></p>-->
             </div>
           </div>
         </div>

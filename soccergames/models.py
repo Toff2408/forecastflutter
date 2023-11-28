@@ -64,6 +64,9 @@ class Game(models.Model):
     to_win = models.IntegerField(default=1)
     goals = models.CharField(max_length=1)
     result = models.BooleanField(null=True, blank=True)
+    lastfive_home = models.CharField(max_length=5, default='LLLLL')
+    lastfive_away = models.CharField(max_length=5, default='WWWWW')
+
 
     def __str__(self):
         return str(self.home_team) + ' - ' + str(self.away_team)
