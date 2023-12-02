@@ -57,7 +57,7 @@ class Game(models.Model):
     away_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='away_team', null=True, blank=True)
     # g_country = models.ForeignKey(Country,on_delete=models.CASCADE,null=True, blank=True)
     # g_league = models.ForeignKey(League,on_delete=models.CASCADE,related_name='leagues')
-    date = models.DateTimeField(default=datetime.now)
+    date = models.TimeField()
     home_odd = models.FloatField()
     draw_odd = models.FloatField()
     away_odd = models.FloatField()
