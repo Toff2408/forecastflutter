@@ -53,15 +53,21 @@ class Game(models.Model):
     away_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='away_team', null=True, blank=True)
     # g_country = models.ForeignKey(Country,on_delete=models.CASCADE,null=True, blank=True)
     # g_league = models.ForeignKey(League,on_delete=models.CASCADE,related_name='leagues')
-    date = models.DateTimeField(default=datetime.now)
+    date = models.TimeField()
     home_odd = models.FloatField()
     draw_odd = models.FloatField()
     away_odd = models.FloatField()
     to_win = models.IntegerField(default=1)
     goals = models.CharField(max_length=1)
     result = models.BooleanField(null=True, blank=True)
+<<<<<<< HEAD
+    lastfive_home = models.CharField(max_length=5, default='LLLLL')
+    lastfive_away = models.CharField(max_length=5, default='WWWWW')
+
+=======
     last_fivehome = models.CharField(max_length=5, default='LLLLL')
     last_fiveaway = models.CharField(max_length=5, default='LLLLL')
+>>>>>>> master
 
     def __str__(self):
         return str(self.home_team) + ' - ' + str(self.away_team)
