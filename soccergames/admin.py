@@ -22,7 +22,7 @@ class TeamAdmin(admin.ModelAdmin):
 @admin.register(Game)
 class LeagueAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'home_team', 'away_team', 'date', 'home_odd', 'draw_odd', 'away_odd', 'to_win', 'goals', 'result',)
+        'id', 'home_team', 'away_team', 'date', 'home_odd', 'draw_odd', 'away_odd', 'to_win', 'goals', 'result','last_fivehome','last_fiveaway')
 
 
 @admin.register(Headtohead)

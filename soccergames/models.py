@@ -35,17 +35,13 @@ class Team(models.Model):
 
 
 class Headtohead(models.Model):
-    GAMESPLAYED = [
-        ('W', 'Win'),
-        ('D', 'Draw'),
-        ('L', 'Loss')
-    ]
+    
     team = models.ManyToManyField(Team)
-    g1 = models.CharField(max_length=1, default='W', choices=GAMESPLAYED)
-    g2 = models.CharField(max_length=1, default='W', choices=GAMESPLAYED)
-    g3 = models.CharField(max_length=1, default='W', choices=GAMESPLAYED)
-    g4 = models.CharField(max_length=1, default='W', choices=GAMESPLAYED)
-    g5 = models.CharField(max_length=1, default='W', choices=GAMESPLAYED)
+    g1 = models.CharField(max_length=1, default='W')
+    g2 = models.CharField(max_length=1, default='W')
+    g3 = models.CharField(max_length=1, default='W')
+    g4 = models.CharField(max_length=1, default='W')
+    g5 = models.CharField(max_length=1, default='W')
 
     def __str__(self):
         return self.g1
@@ -64,9 +60,14 @@ class Game(models.Model):
     to_win = models.IntegerField(default=1)
     goals = models.CharField(max_length=1)
     result = models.BooleanField(null=True, blank=True)
+<<<<<<< HEAD
     lastfive_home = models.CharField(max_length=5, default='LLLLL')
     lastfive_away = models.CharField(max_length=5, default='WWWWW')
 
+=======
+    last_fivehome = models.CharField(max_length=5, default='LLLLL')
+    last_fiveaway = models.CharField(max_length=5, default='LLLLL')
+>>>>>>> master
 
     def __str__(self):
         return str(self.home_team) + ' - ' + str(self.away_team)

@@ -39,6 +39,7 @@
                         {% if result == 'L' %}
                         <p class="last_games" > <span class="gameslast" style="background-color: red;"> {{ result }} </span> </p>
 
+<<<<<<< HEAD
                         {% elif result == 'D' %}
                         <p class="last_games" > <span class="gameslast" style="background-color: rgb(145, 145, 28);"> {{ result }} </span> </p>
                         {% else  %}
@@ -71,6 +72,20 @@
                     {% endwith %}
                   </div>
                 </div>
+=======
+            <div class="firstgameteampart">
+              {% for gamehome in game.last_fivehome | split : "" %}
+              <p class="last_games"><span class="gameslast">{{gamehome}}</span></p>
+              {% endfor %}
+              <!-- <p class="last_games"><span class="gameslast">{{game.headhead.g1}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g2}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g3}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g4}}</span></p>
+              <p class="last_games"><span class="gameslast">{{game.headhead.g5}}</span></p> -->
+            </div>
+              <div class="standing">
+                <p class="team_select">{{game.home_team}}</p>
+>>>>>>> master
               </div>
 
               <div class="final_result">
