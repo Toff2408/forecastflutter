@@ -11,20 +11,26 @@ class CountryAdmin(admin.ModelAdmin):
 
 @admin.register(League)
 class LeagueAdmin(admin.ModelAdmin):
-    list_display = ('id', 'country', 'league',)
+    list_display = ('id', 'country', 'league','slug')
+    prepopulated_fields = {'slug':('league',)}
 
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('name', 'league',)
+    list_display = ('id','name', 'league',)
 
 
 @admin.register(Game)
-class LeagueAdmin(admin.ModelAdmin):
-    list_display = (
-        'id', 'home_team', 'away_team', 'date', 'home_odd', 'draw_odd', 'away_odd', 'to_win', 'goals', 'result','last_fivehome','last_fiveaway')
+class GameAdmin(admin.ModelAdmin):
+    list_display = ('home_team','away_team','gamedates',  'date', 'home_odd','draw_odd','away_odd', 'to_win', 'goals', 'result','lastfive_home','lastfive_away','won','notwon','overone','overtwo','overthree')
 
 
 @admin.register(Headtohead)
 class HeadtoheadAdmin(admin.ModelAdmin):
-    list_display = ('g1', 'g2', 'g3', 'g4', 'g5')
+    list_display = ('id','first_team','second_team','result','date')
+
+@admin.register(GameDates)
+class GameDatesAdmin(admin.ModelAdmin):
+    list_display = ('id','dates')
+
+

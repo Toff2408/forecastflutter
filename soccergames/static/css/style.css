@@ -6,8 +6,6 @@
 
 body{
     background-color:rgb(19,24,27);
-    /* height: 100vh;
-    width: 100vw; */
 }
 
 .container_body {
@@ -25,12 +23,12 @@ body{
 }
 
 .purpose {
-   max-width:60rem;
+   max-width:50rem;
     text-align: center;
     margin: 0 auto;
     color: aliceblue;
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-transform: capitalize;
     letter-spacing: 1.2px;
 }
@@ -280,7 +278,184 @@ li .links {
     margin-left: 1rem;
     cursor: pointer;
 }
+.viewmore:hover {
+    background: white;
+    color: black;
+    box-shadow: 1px 1px 2px 3px black;
+}
 
+/* detail page */
+
+.teamdetails {
+    background: white;
+}
+
+.playing_teams {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 1rem;
+    text-transform: capitalize;
+    letter-spacing: 1.2px;
+    margin-bottom: 0;
+    color: rgb(107, 78, 42);
+}
+
+.playteamodd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1rem 5rem 0rem 5rem;
+    font-size: 15px;
+}
+
+.detailsodds {
+    margin: 0;
+    font-weight: 400;
+    padding-bottom: 1rem;
+}
+
+.leaguedetails {
+    text-align: center;
+    font-size: 8px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-weight: 500;
+    border: 2px solid purple;
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    
+}
+
+.asterisk {
+    color: red;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.game_details {
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 12px;
+    padding-left: 1rem;
+    font-weight: 500;
+    color: white;
+    background:black ;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+}
+
+.date_details {
+    padding-left: 1rem;
+    font-size: 12px;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: black;
+}
+
+.time_details {
+    padding-left: 1rem;
+    font-size: 12px;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: black;
+}
+
+.stats_teams {
+    display: grid;
+    grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+}
+
+.firstteam_stats {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.secondteam_stats {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.detailstatement {
+    font-size:12px;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align:start;
+    padding-left: 5px;
+    color: black;
+    background-color: #a7abad33;
+    margin-top: 1rem;
+    text-transform: capitalize;
+}
+
+.playingteam1 {
+ font-size: small;
+ text-transform: capitalize;
+ box-shadow: 1px 3px 6px 1px blue;
+ font-weight: 500;
+ margin-bottom: 10px;
+ padding: 5px;
+ border-radius: 5px;
+ width: 15rem;
+ margin: auto;
+ text-transform: capitalize;
+}
+
+.playingteam2 {
+ font-size: small;
+ text-transform: capitalize;
+ box-shadow: 1px 3px 6px 1px red;
+ font-weight: 500;
+ margin-bottom: 10px;
+ padding: 5px;
+ width: 15rem;
+ border-radius: 5px;
+ margin: auto;
+}
+
+.overodd {
+    display: grid;
+    grid-template:repeat(1, 1fr)/ repeat(3, 1fr) ;
+    text-align: center;
+}
+
+
+.overone img {
+    font-size: 4px;
+    margin: 0 ;
+    font-weight: 400;
+    margin-right: 6px;
+    margin-top:3px;
+    width: 20px;
+}
+
+.overtwo img {
+    font-size: 4px;
+    margin: 0 ;
+    font-weight: 400;
+    margin-right: 6px;
+    margin-top:3px;
+    width: 20px;
+}
+.overthree img {
+    font-size: 4px;
+    margin: 0 ;
+    font-weight: 400;
+    margin-right: 6px;
+    margin-top:3px;
+    width: 20px;
+}
+
+.teamoverall {
+    display: grid;
+    grid-template:repeat(1/1fr)/ repeat(1/1fr) ;
+}
 
 
 
@@ -299,12 +474,12 @@ li .links {
     }
 
     .purpose {
-        max-width:35rem;
+        max-width:45rem;
          text-align: center;
          margin: 0 auto;
          color: aliceblue;
          font-weight: 300;
-         font-size: 1.2rem;
+         font-size: 1.5rem;
          text-transform: capitalize;
          letter-spacing: 1.2px;
      }
@@ -436,6 +611,24 @@ li .links {
         color: black;
         box-shadow: 1px 1px 2px 3px black;
     }
+
+    .teamoverall {
+        display:grid;
+        grid-template: repeat(1, 1fr) / 1 80fr 20fr;
+    }
+
+    .premierholder {
+        width: 15rem;
+        background: rgb(203, 184, 149);
+    }
+
+    .premierholder ul{
+        list-style: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
  
 }
 
@@ -449,12 +642,12 @@ li .links {
     }
 
     .purpose {
-        max-width:50rem;
+        max-width:45rem;
          text-align: center;
          margin: 0 auto;
          color: aliceblue;
          font-weight: 300;
-         font-size: 1.2rem;
+         font-size: 1.6rem;
          text-transform: capitalize;
          letter-spacing: 1.2px;
      }
@@ -499,6 +692,25 @@ li .links {
         background: white;
         color: black;
         box-shadow: 1px 1px 2px 3px black;
+    }
+
+    .teamoverall {
+        display:grid;
+        grid-template: repeat(1, 1fr) / 80fr 20fr;
+    }
+
+    .premierholder {
+        width: 15rem;
+        margin: 0 auto;
+        background: rgb(203, 184, 149);
+    }
+
+    .premierholder ul{
+        list-style: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: capitalize;
     }
 }
 
