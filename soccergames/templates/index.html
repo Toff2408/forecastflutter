@@ -17,97 +17,92 @@
 <!-- header part ends -->
 <!-- date section  -->
 <section>
-  <div class="date_nav">
-      <p class="date_box">pick your preferred prediction date <span class="date_bar">date</span></p>
-  </div>
+  {% for date in games  %}
+    <div class="date_nav">
+        <p class="date_box">pick your preferred prediction date <span class="date_bar">{{date.gamedates}}</span></p>
+    </div>
+  {% endfor %}
 </section>
 {% if games %}
   {% regroup games by home_team.league as events_by_league %}
     {% for league in events_by_league %}
       <div class="content">
         <a href="" class="club_name"><img src="{{league.grouper.country.img.url}}" alt="" class="img_flag"> {{league.grouper}} {{league.grouper.country}}</a>
-        {% for game in league.list %}
-            <div class="team_last">
-              <div class="team_opposite">
-                <div class="opposite_team1">
-                  <div class="standingteam1">
-                    <p class="team_time">{{game.date|time:"H:i"}}</p>
-                  </div>
-                  <div class="firstgameteampart">
-                    {% with game.lastfive_home|split as results %}
-                      {% for result in results %}
-                        {% if result == 'L' %}
-                        <p class="last_games" > <span class="gameslast" style="background-color: red;"> {{ result }} </span> </p>
-
-<<<<<<< HEAD
-                        {% elif result == 'D' %}
-                        <p class="last_games" > <span class="gameslast" style="background-color: rgb(145, 145, 28);"> {{ result }} </span> </p>
-                        {% else  %}
-                        <p class="last_games"> <span class="gameslast"  style="background-color: green;"> {{ result }} </span> </p>
-                        {% endif %}
-                        
-                      {% endfor %}
-                    {% endwith %}
-                  </div>
-                    <div class="standing">
-                      <p class="team_select">{{game.home_team}}  -</p>
+        <div class="teamoverall">
+              {% for game in league.list %}
+                <div class="team_last">
+                  <div class="team_opposite">
+                    <div class="opposite_team1">
+                      <div class="standingteam1">
+                        <p class="team_time">{{game.date|time:"H:i"}}</p>
+                      </div>
+                      <div class="firstgameteampart">
+                        <!-- {% with game.lastfive_home|split as results %}
+                          {% for result in results %}
+                            {% if result == 'L' %}
+                            <p class="last_games" > <span class="gameslast" style="background-color: red;"> {{ result }} </span> </p>
+                            {% elif result == 'D' %}
+                            <p class="last_games" > <span class="gameslast" style="background-color: rgb(145, 145, 28);"> {{ result }} </span> </p>
+                            {% else  %}
+                            <p class="last_games"> <span class="gameslast"  style="background-color: green;"> {{ result }} </span> </p>
+                            {% endif %}
+                
+                          {% endfor %}
+                        {% endwith %} -->
+                      </div>
+                        <div class="standing">
+                          <p class="team_select">{{game.home_team}}  -</p>
+                        </div>
                     </div>
-                </div>
-                <div class="opposite_team2">
-                  <div class="standing">
-                    <p class="team_select">{{game.away_team}}</p>
+                    <div class="opposite_team2">
+                      <div class="standing">
+                        <p class="team_select">{{game.away_team}}</p>
+                      </div>
+                      <div class="secondgameteampart">
+                        <!-- {% with game.lastfive_away|split as results %}
+                          {% for result in results %}
+                          {% if result == 'L' %}
+                          <p class="last_games" > <span class="gameslast" style="background-color: red;"> {{ result }} </span> </p>
+                          {% elif result == 'D' %}
+                          <p class="last_games" > <span class="gameslast" style="background-color: rgb(145, 145, 28);"> {{ result }} </span> </p>
+                          {% else  %}
+                          <p class="last_games"> <span class="gameslast"  style="background-color: green;"> {{ result }} </span> </p>
+                          {% endif %}
+                          {% endfor %}
+                        {% endwith %} -->
+                      </div>
+                    </div>
                   </div>
-                  <div class="secondgameteampart">
-                    {% with game.lastfive_away|split as results %}
-                      {% for result in results %}
-                      {% if result == 'L' %}
-                      <p class="last_games" > <span class="gameslast" style="background-color: red;"> {{ result }} </span> </p>
-
-                      {% elif result == 'D' %}
-                      <p class="last_games" > <span class="gameslast" style="background-color: rgb(145, 145, 28);"> {{ result }} </span> </p>
-                      {% else  %}
-                      <p class="last_games"> <span class="gameslast"  style="background-color: green;"> {{ result }} </span> </p>
-                      {% endif %}
-                      {% endfor %}
-                    {% endwith %}
+                  <div class="final_result">
+                    <p class="first_odd">{{game.home_odd}}</p>
+                    <p class="draw_odd">{{game.draw_odd}}</p>
+                    <p class="second_odd">{{game.away_odd}}</p>
+                    <p class="team_win">{{game.to_win}}</p>
+                    <p class="goals">{{game.goals}}</p>
+                    {% if game.result %}
+                      <p class="result"><img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="" class="checking_mark"></p>
+                    {% elif games.result == False %}
+                      <p class="result"><img src="{% static 'img/bad.png' %}" alt="" class="checking_mark2"></p>
+                    {% else %}
+                      <p class="result"><img src="{% static 'img/pend.png' %}" alt="" class="checking_mark2"></p>
+                    {% endif %}
+                    <a href="{% url 'detail' game.id game.home_team.league.slug %}" class="viewmore" type="button">View more</a>
                   </div>
                 </div>
-=======
-            <div class="firstgameteampart">
-              {% for gamehome in game.last_fivehome | split : "" %}
-              <p class="last_games"><span class="gameslast">{{gamehome}}</span></p>
               {% endfor %}
-              <!-- <p class="last_games"><span class="gameslast">{{game.headhead.g1}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g2}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g3}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g4}}</span></p>
-              <p class="last_games"><span class="gameslast">{{game.headhead.g5}}</span></p> -->
-            </div>
-              <div class="standing">
-                <p class="team_select">{{game.home_team}}</p>
->>>>>>> master
+              <div class="listofleague">
+                <div class="premierholder">
+                  <ul>
+                      {% for premiers in premier %}
+                      <li>{{premiers.league}}</li>
+                      {% endfor %}
+                  </ul>
+                </div>
               </div>
-
-              <div class="final_result">
-                <p class="first_odd">{{game.home_odd}}</p>
-                <p class="draw_odd">{{game.draw_odd}}</p>
-                <p class="second_odd">{{game.away_odd}}</p>
-                <p class="team_win">{{game.to_win}}</p>
-                <p class="goals">{{game.goals}}</p>
-                {% if game.result %}
-                  <p class="result"><img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="" class="checking_mark"></p>
-                {% elif games.result == False %}
-                  <p class="result"><img src="{% static 'img/bad.png' %}" alt="" class="checking_mark2"></p>
-                {% else %}
-                  <p class="result"><img src="{% static 'img/pend.png' %}" alt="" class="checking_mark2"></p>
-                {% endif %}
-                <a href="" class="viewmore" type="button">View more</a>
-              </div>
-            </div>
-            {% endfor %}
+          </div>
+            
       </div>
     {% endfor %}
   {% endif %}
-
 {% endblock content %}
 

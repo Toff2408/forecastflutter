@@ -8,5 +8,67 @@
 {% endblock header %}
 
 {% block content %}
+  <div class="teamdetails">
+    <div class="teamholder">
+        <h1 class="playing_teams"> {{details.home_team}} vs {{details.away_team}}</h1>
+        <div class="playteamodd">
+            <p class="detailsodds">Home: {{details.home_odd}}</p>
+            <p class="detailsodds">Draw: {{details.draw_odd}}</p>
+            <p class="detailsodds">Away: {{details.away_odd}}</p>
+        </div>
+        <p class="leaguedetails">{{details.home_team.league}}</p>
+    </div>
+    
+    <div class="detail_activity">
+        <p class="game_details"><span class="asterisk">*</span> game activity</p>
+        <ol class="gamedata">
+            <li class="date_details">date: nov 12 2023</li>
+            <li class="time_details">time: {{details.date}}</li>
+        </ol>
+        <p class="game_details"><span class="asterisk">*</span>Teams statistics</p>
+        <div class="stats_teams">
+            <div class="firstteam_stats">
+                <p class="playingteam1">{{details.home_team}}</p>
+                <p class="detailstatement">{{details.won}}</p>
+                <p class="detailstatement">{{details.notwon}}</p>
+            </div>
+            <div class="secondteam_stats">
+                <p class="playingteam2">{{details.away_team}}</p>
+                <p class="detailstatement">{{details.won}}</p>
+                <p class="detailstatement">{{details.notwon}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="oddrating">
+        <p class="game_details"><span class="asterisk">*</span>over/under possibilities</p>
+        <div class="overodd">
+            {% if details.overone %}
+                <p class="overone">over 1.5 <img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="check"></p>
+            {% else %}
+                <p class="overone">over 1.5 <img src="{% static 'img/bad.png' %}" alt="check"></p>
+            {% endif %}
+            {% if details.overtwo %}
+                <p class="overtwo">over 2.5 <img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="check"></p>
+            {% else %}
+                <p class="overtwo">over 2.5 <img src="{% static 'img/bad.png' %}" alt="check"></p>
+            {% endif %}
+            {% if details.overthree %}
+                <p class="overtwo">over 3.5 <img src="{% static 'img/check-mark-icon-green-0.png' %}" alt="check"></p>
+            {% else %}
+                <p class="overtwo">over 3.5 <img src="{% static 'img/bad.png' %}" alt="check"></p>
+            {% endif %}
+        </div>
+    </div>
   
+    <div class="headtoheadstats">
+        <p class="game_details"><span class="asterisk">*</span>head to head statistics</p>
+        <div class="headstatteam">
+            <p class="overone">{{head.first_team}} - {{head.second_team}}</p>            
+        </div>
+    </div>
+  </div>
+
+
+
 {% endblock content %}
