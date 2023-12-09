@@ -612,7 +612,7 @@ li .links {
         box-shadow: 1px 1px 2px 3px black;
     }
 
-    .teamoverall {
+    /* .teamoverall {
         display:grid;
         grid-template: repeat(1, 1fr) / 1 80fr 20fr;
     }
@@ -628,7 +628,7 @@ li .links {
         font-size: 1rem;
         font-weight: 500;
         text-transform: capitalize;
-    }
+    } */
  
 }
 
@@ -694,7 +694,7 @@ li .links {
         box-shadow: 1px 1px 2px 3px black;
     }
 
-    .teamoverall {
+    /* .teamoverall {
         display:grid;
         grid-template: repeat(1, 1fr) / 80fr 20fr;
     }
@@ -711,7 +711,7 @@ li .links {
         font-size: 1rem;
         font-weight: 500;
         text-transform: capitalize;
-    }
+    } */
 }
 
 

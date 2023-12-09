@@ -17,18 +17,16 @@
 <!-- header part ends -->
 <!-- date section  -->
 <section>
-  {% for date in games  %}
-    <div class="date_nav">
-        <p class="date_box">pick your preferred prediction date <span class="date_bar">{{date.gamedates}}</span></p>
+  <div class="date_nav">
+        <p class="date_box">pick your preferred prediction date <span class="date_bar">sdate</span></p>
     </div>
-  {% endfor %}
 </section>
 {% if games %}
   {% regroup games by home_team.league as events_by_league %}
     {% for league in events_by_league %}
       <div class="content">
         <a href="" class="club_name"><img src="{{league.grouper.country.img.url}}" alt="" class="img_flag"> {{league.grouper}} {{league.grouper.country}}</a>
-        <div class="teamoverall">
+        <!-- <div class="teamoverall"> -->
               {% for game in league.list %}
                 <div class="team_last">
                   <div class="team_opposite">
@@ -89,17 +87,17 @@
                     <a href="{% url 'detail' game.id game.home_team.league.slug %}" class="viewmore" type="button">View more</a>
                   </div>
                 </div>
+                <!-- <div class="listofleague">
+                  <div class="premierholder">
+                    <ul>
+                        {% for premiers in premier %}
+                        <li>{{premiers.league}}</li>
+                        {% endfor %}
+                    </ul>
+                  </div>
+                </div> -->
+        <!-- </div> -->
               {% endfor %}
-              <div class="listofleague">
-                <div class="premierholder">
-                  <ul>
-                      {% for premiers in premier %}
-                      <li>{{premiers.league}}</li>
-                      {% endfor %}
-                  </ul>
-                </div>
-              </div>
-          </div>
             
       </div>
     {% endfor %}

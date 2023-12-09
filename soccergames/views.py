@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from .models import *
-from datetime import date
+# from datetime import date
 
 
 
 def index(request):
-    format = date.today()
-    games = Game.objects.all().order_by('home_team__league').filter(gamedates__dates=format)
+    # format = date.today()
+    games = Game.objects.all().order_by('home_team__league')
+    # .filter(gamedates__dates=format)
     premier = League.objects.all().order_by('league')
     
     context = {
